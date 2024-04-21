@@ -11,7 +11,7 @@
   > `helm search repo onedaylove`
 ```
 NAME                    CHART VERSION   APP VERSION     DESCRIPTION
-lir2002/onedaylove      0.1.1           1.16.0          A Helm chart for Kubernetes
+onedaylove/onedaylove      0.1.1           1.16.0          A Helm chart for Kubernetes
 ```
 - Install package: 
   > `helm install one onedaylove/onedaylove`
