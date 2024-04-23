@@ -2,8 +2,21 @@ apiVersion: v1
 entries:
   onedaylove:
   - apiVersion: v2
+    appVersion: 1.25-alpine
+    created: "2024-04-23T13:45:36.5229217+08:00"
+    description: A Helm chart for Kubernetes
+    digest: 2641e80db07edf27cdc1c5e8e46b2bfb2f9e60a48d978c8c26d18bc1383a61bf
+    home: https://github.com/lir2002/onedaylove
+    name: onedaylove
+    sources:
+    - https://github.com/lir2002/onedaylove
+    type: application
+    urls:
+    - https://lir2002.github.io/onedaylove/onedaylove-0.1.2.tgz
+    version: 0.1.2
+  - apiVersion: v2
     appVersion: 1.16.0
-    created: "2024-04-19T22:03:28.6861033+08:00"
+    created: "2024-04-23T13:45:36.5224137+08:00"
     description: A Helm chart for Kubernetes
     digest: 7b7bde0ba1d25f3021dcaee09777f0dae6fdfefa372a1c59bd29f5ec2eae3f25
     name: onedaylove
@@ -11,4 +24,4 @@ entries:
     urls:
     - https://lir2002.github.io/onedaylove/onedaylove-0.1.1.tgz
     version: 0.1.1
-generated: "2024-04-19T22:03:28.685494+08:00"
+generated: "2024-04-23T13:45:36.5196539+08:00"
