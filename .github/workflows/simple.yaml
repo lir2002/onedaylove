@@ -4,6 +4,9 @@ run-name: Simple flow is triggered by ${{ github.event_name }}
 on:
     push:
       branches: main
+      paths-ignore:
+      - '**/hourly.yaml'
+      - '**/release.yml'
     workflow_dispatch:
     
 jobs:
