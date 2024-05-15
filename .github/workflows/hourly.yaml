@@ -2,7 +2,7 @@ name: Hourly Schedule
 run-name: ${{github.actor}} is running Hourly Scheduled Workflow
 on:
   schedule:
-  - cron: '40 * * * *'
+  - cron: '40 */12 * * *'
 
 jobs:
   Say-Good-Night:
