@@ -22,7 +22,7 @@ jobs:
         name: myart
     - name: Speak
       run: |
-        echo "Hello, World" >
+        echo "Hello, World"
         echo Welcome to my world.
   say-goodbye:
     name: Good Bye
