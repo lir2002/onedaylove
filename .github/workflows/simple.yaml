@@ -1,5 +1,6 @@
 ---
 name: simple-flow
+run-name: Simple flow is triggered by ${{ github.event_name }}
 on:
     push:
       branches: main
