@@ -25,12 +25,16 @@ jobs:
         echo "Hello, World"
         echo Welcome to my world.
   say-goodbye:
+    strategy:
+      matrix:
+        lane: [one, two]
+        month: [May, June]
     name: Good Bye
     runs-on: [self-hosted]
     steps:
     - name: Speak
       run: |
-        echo "Good Bye, Ethan!"
+        echo "Good Bye, Ethan! It is lane: ${{matrix.lane}}, month: ${{matrix.month}}"
         echo "Good night, Ethan!"
   close:
     name: Close it
