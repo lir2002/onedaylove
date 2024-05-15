@@ -1,0 +1,40 @@
+---
+name: simple-flow
+on:
+    push:
+      branches: main
+    workflow_dispatch:
+    schedule:
+    - cron: '3 * * * *'
+    
+jobs:
+  say-hello:
+    runs-on: [self-hosted]
+    name: Hello Belly
+    environment: dev
+    steps:
+    - name: Get Code
+      uses: actions/checkout@v4
+    - name: Speak
+      run: |
+        echo "Hello, World"
+        echo Welcome to my world.
+  say-goodbye:
+    name: Good Bye
+    runs-on: [self-hosted]
+    steps:
+    - name: Speak
+      run: |
+        echo "Good Bye, Ethan!"
+        echo "Good night, Ethan!"
+  close:
+    name: Close it
+    runs-on: [self-hosted]
+    steps:
+    - name: Close
+      run: |
+        echo "I'm done"
+    needs: 
+     - say-goodbye
+     - say-hello
+
