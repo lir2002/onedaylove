@@ -6,7 +6,7 @@ on:
 
 jobs:
   Say-Good-Night:
-    runs-on: [self-hosted]
+    runs-on: ubuntu-latest
     steps:
     - name: step 1
       id: step-1
