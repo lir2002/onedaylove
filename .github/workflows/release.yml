@@ -1,0 +1,16 @@
+---
+name: Release Workflow
+run-name: ${{github.action}} trigers Release Workflow
+on:
+  label:
+    types:
+    - created
+    - edited
+
+jobs:
+  rel-job:
+    runs-on: [self-hosted, Linux]
+    steps:
+    - name: Step one
+      run: |
+        echo $GITHUB_REF_NAME is created or edited by ${{github.actor}}
