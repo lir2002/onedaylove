@@ -2,10 +2,11 @@
 name: Release Workflow
 run-name: ${{github.action}} trigers Release Workflow
 on:
-  label:
+  release:
     types:
     - created
     - edited
+    - released
 
 jobs:
   rel-job:
@@ -13,4 +14,4 @@ jobs:
     steps:
     - name: Step one
       run: |
-        echo $GITHUB_REF_NAME is created or edited by ${{github.actor}}
+        echo $GITHUB_REF_NAME is ${{ github.event_name }} by ${{github.actor}}
