@@ -22,4 +22,11 @@ jobs:
         echo '::warning:: This will NOT be rendered as a warning, because stop-commands has been invoked.'
         echo "::$stopMarker::"
         echo '::warning:: This is a warning again, because stop-commands has been turned off.'
-    
+    - name: Notice command
+      run: |
+        echo "::notice file=README.md,line=20,endline=30,title=See Readme::Pay attention plase"
+        echo "::group::Notice"
+        echo Hellowood
+        echo "Good afternoon"
+        echo "Happy Thursday"
+        echo "::endgroup::"
