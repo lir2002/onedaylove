@@ -1,0 +1,30 @@
+---
+on:
+  workflow_call:
+    inputs:
+      inh1:
+        default: input one
+        type: string
+      inh2:
+        default: true
+        type: boolean
+      inh3:
+        default: 33
+        type: number
+    outputs:
+      outInh:
+        value: ${{github.run_id}}
+    secrets:
+      pat1:
+
+jobs:
+  inherit-job:
+    env:
+      ENV_SEC: ${{join(secrets.*, '-')}}
+    runs-on: arc-runner-set
+    steps:
+      - run: |
+          echo "UP CASE of secrets: ${ENV_SEC^^}"
+          echo "LOW CASE of secrets: ${ENV_SEC,,}"
+          echo "Inputs are: ${{join(inputs.*, '+' )}}"
+        shell: bash

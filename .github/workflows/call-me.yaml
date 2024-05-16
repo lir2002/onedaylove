@@ -35,3 +35,6 @@ jobs:
       run: |
         echo Input var1 is ${{inputs.var1}}
         echo Input var2 is ${{inputs.var2}}
+  call-on-job:
+    uses: ./.github/workflows/inherit-sec.yaml
+    secrets: inherit
