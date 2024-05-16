@@ -50,7 +50,7 @@ jobs:
       if: ${{env.JOB_ENV_SEC == 'repo'}}
       run: echo DEV_SEC is repo
   calling-job:
-    uses: call-me.yaml@main
+    uses: ./.github/workflows/call-me.yaml@main
     with:
       var1: Sunday is today
       var2: What is tomorrow
