@@ -12,6 +12,8 @@ jobs:
     - run: echo "🎉 This job uses runner scale set runners!"
 
   workflow-command-job:
+    env:
+      JOB_ENV_SEC: ${{secrets.DEV_SEC}}
     runs-on: arc-runner-set
     steps: 
     - name: Disable workflow commands
@@ -35,3 +37,9 @@ jobs:
         echo "Good afternoon"
         echo "Happy Thursday"
         echo "::endgroup::"
+    - name: I am Dev
+      if: ${{env.JOB_ENV_SEC == 'dev'}}
+      run: echo DEV_SEC is dev
+    - name: I am repo
+      if: ${{env.JOB_ENV_SEC == 'repo'}}
+      run: echo DEV_SEC is repo
