@@ -33,7 +33,7 @@ jobs:
         lane: [one, two]
         month: [May, June]
     name: Good Bye
-    runs-on: [self-hosted]
+    runs-on: arc-runner-set
     steps:
     - name: Speak
       run: |
@@ -41,7 +41,7 @@ jobs:
         echo "Good night, Ethan!"
   close:
     name: Close it
-    runs-on: [self-hosted]
+    runs-on: arc-runner-set
     steps:
     - name: Download artifact
       uses: actions/download-artifact@v4
