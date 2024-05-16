@@ -17,7 +17,7 @@ jobs:
     - name: Disable workflow commands
       run: |
         echo '::warning:: This is a warning message, to demonstrate that commands are being processed.'
-        stopMarker=IAMSTOPMARKER
+        stopMarker=IAMSTOPMARKER_${RANDOM}_${RANDOM}
         echo "::stop-commands::$stopMarker"
         echo '::warning:: This will NOT be rendered as a warning, because stop-commands has been invoked.'
         echo "::$stopMarker::"
