@@ -10,11 +10,15 @@ jobs:
     runs-on: arc-runner-set
     steps:
     - run: echo "🎉 This job uses runner scale set runners!"
+    outputs:
+      outExp1: ${{job.status }}
 
   workflow-command-job:
+    needs: Explore-GitHub-Actions
     environment: dev
     env:
       JOB_ENV_SEC: ${{secrets.DEV_SEC}}
+      JOB_STATUS: ${{needs.Explore-GitHub-Actions.outputs.outExp1}}
     runs-on: arc-runner-set
     steps: 
     - name: Disable workflow commands
@@ -33,7 +37,7 @@ jobs:
         echo "::notice file=README.md,line=20,endline=30,title=See Readme::Pay attention plase"
         echo "::group::Notice"
         echo Hellowood
-        env
+        echo Last job status: $JOB_STATUS
         echo lowcase of var ENV_SEC: ${ENV_SEC,,}
         echo upcase of var ENV_SEC: ${ENV_SEC^^}
         echo sec ENV_SEC: ${{secrets.DEV_SEC}}
@@ -42,6 +46,7 @@ jobs:
         echo "variable : $DEV_SCHOOL"
         echo "variable: ${{vars.ETHAN_HOME}}"
         echo "variable: ${{vars.DEV_SCHOOL}}"
+        env
         echo "::endgroup::"
     - name: I am Dev
       if: ${{env.JOB_ENV_SEC == 'dev'}}
