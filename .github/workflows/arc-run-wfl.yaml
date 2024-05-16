@@ -3,7 +3,7 @@ on:
   workflow_dispatch:
   push:
     branches: [main]
-run-name: ${{github.event_name}} triggers Running
+run-name: ${{github.event_name}} triggers ARC Running
 jobs:
   Explore-GitHub-Actions:
     needs: calling-job
@@ -60,6 +60,7 @@ jobs:
       run: echo DEV_SEC is repo
   calling-job:
     uses: ./.github/workflows/call-me.yaml
+    name: Uses Call Me
     with:
       var1: Sunday is today
       var2: What is tomorrow
