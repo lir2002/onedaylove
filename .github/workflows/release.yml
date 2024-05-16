@@ -10,7 +10,8 @@ on:
 
 jobs:
   rel-job:
-    runs-on: [self-hosted, Linux]
+    runs-on:
+      labels: [self-hosted, Linux]
     steps:
     - name: Step one
       run: |
