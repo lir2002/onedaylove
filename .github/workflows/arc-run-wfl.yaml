@@ -28,6 +28,7 @@ jobs:
     - name: Notice command
       env:
         ENV_SEC: ${{secrets.DEV_SEC}}
+      shell: bash
       run: |
         echo "::notice file=README.md,line=20,endline=30,title=See Readme::Pay attention plase"
         echo "::group::Notice"
