@@ -12,6 +12,7 @@ jobs:
     - run: echo "🎉 This job uses runner scale set runners!"
 
   workflow-command-job:
+    environment: dev
     env:
       JOB_ENV_SEC: ${{secrets.DEV_SEC}}
     runs-on: arc-runner-set
@@ -40,6 +41,6 @@ jobs:
     - name: I am Dev
       if: ${{env.JOB_ENV_SEC == 'dev'}}
       run: echo DEV_SEC is dev
-    - name: I am repo
+    - name: I am Repo
       if: ${{env.JOB_ENV_SEC == 'repo'}}
       run: echo DEV_SEC is repo
