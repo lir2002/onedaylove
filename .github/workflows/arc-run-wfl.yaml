@@ -6,12 +6,14 @@ on:
 run-name: ${{github.event_name}} triggers Running
 jobs:
   Explore-GitHub-Actions:
+    needs: calling-job
     # You need to use the INSTALLATION_NAME from the previous step
     runs-on: arc-runner-set
     steps:
     - run: echo "🎉 This job uses runner scale set runners!"
     outputs:
       outExp1: ${{job.status }}
+      outCall: ${{needs.calling-job.outputs.outwfl}}
 
   workflow-command-job:
     needs: Explore-GitHub-Actions
@@ -38,6 +40,8 @@ jobs:
         echo "::group::Notice"
         echo Hellowood
         echo Last job status: $JOB_STATUS
+        echo Last called output: ${{needs.Explore-GitHub-Actions.outputs.outCall}}
+        echo Last called result: ${{needs.Explore-GitHub-Actions.result}}
         echo lowcase of var ENV_SEC: ${ENV_SEC,,}
         echo upcase of var ENV_SEC: ${ENV_SEC^^}
         echo sec ENV_SEC: ${{secrets.DEV_SEC}}

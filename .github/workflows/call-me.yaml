@@ -12,18 +12,24 @@ on:
     secrets:
       pat1:
         required: true
+    outputs:
+      outwfl:
+        value: ${{jobs.greeting-job.outputs.outjob}}
     
 jobs:
   greeting-job:
     runs-on: arc-runner-set
     env:
       SEC_PAT1: ${{secrets.pat1}}
+    outputs:
+      outjob: ${{job.status}}
     steps:
     - run: |
         echo secret upcase: ${SEC_PAT1^^}
         echo secret lowcase: ${SEC_PAT1,,}
       shell: bash
       name: Show secret pat1
+      id: step-1
     - name: Show Inputs
       shell: bash
       run: |
