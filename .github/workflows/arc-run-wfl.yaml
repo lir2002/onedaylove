@@ -3,7 +3,7 @@ on:
   workflow_dispatch:
   push:
     branches: [main]
-run-name: ${{github.action_path}} triggers Running
+run-name: $GITHUB_EVENT_NAME triggers Running
 jobs:
   Explore-GitHub-Actions:
     # You need to use the INSTALLATION_NAME from the previous step
@@ -13,11 +13,11 @@ jobs:
 
   workflow-command-job:
     runs-on: arc-runner-set
-    steps:
+    steps: 
     - name: Disable workflow commands
       run: |
         echo '::warning:: This is a warning message, to demonstrate that commands are being processed.'
-        stopMarker=$(uuidgen)
+        stopMarker=IAMSTOPMARKER
         echo "::stop-commands::$stopMarker"
         echo '::warning:: This will NOT be rendered as a warning, because stop-commands has been invoked.'
         echo "::$stopMarker::"
