@@ -3,7 +3,7 @@ on:
   workflow_dispatch:
   push:
     branches: [main]
-run-name: $GITHUB_EVENT_NAME triggers Running
+run-name: ${{github.event_name}} triggers Running
 jobs:
   Explore-GitHub-Actions:
     # You need to use the INSTALLATION_NAME from the previous step
