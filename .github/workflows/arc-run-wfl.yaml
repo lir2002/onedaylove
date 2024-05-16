@@ -39,6 +39,9 @@ jobs:
         echo sec ENV_SEC: ${{secrets.DEV_SEC}}
         echo "Good afternoon"
         echo "Happy Thursday"
+        echo "variable : $DEV_SCHOOL"
+        echo "variable: ${{vars.ETHAN_HOME}}"
+        echo "variable: ${{vars.DEV_SCHOOL}}"
         echo "::endgroup::"
     - name: I am Dev
       if: ${{env.JOB_ENV_SEC == 'dev'}}
