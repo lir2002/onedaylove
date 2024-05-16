@@ -1,0 +1,31 @@
+---
+on:
+  workflow_call:
+    inputs:
+        var1:
+            required: true
+            default: ValueOne
+            type: string
+        var2:
+            default: ValueTwo
+            type: string
+    secrets:
+      pat1:
+        required: true
+    
+jobs:
+  greeting-job:
+    runs-on: arc-runner-set
+    env:
+      SEC_PAT1: ${{secrets.pat1}}
+    steps:
+    - run: |
+        echo secret upcase: ${SEC_PAT1^^}
+        echo secret lowcase: ${SEC_PAT1,,}
+      shell: bash
+      name: Show secret pat1
+    - name: Show Inputs
+      shell: bash
+      run: |
+        echo Input var1 is ${{inputs.var1}}
+        echo Input var2 is ${{inputs.var2}}
