@@ -22,10 +22,13 @@ jobs:
   inherit-job:
     env:
       ENV_SEC: ${{join(secrets.*, '-')}}
+      ENV_PAT: $${{secrets.pat1}}
     runs-on: arc-runner-set
     steps:
       - run: |
           echo "UP CASE of secrets: ${ENV_SEC^^}"
           echo "LOW CASE of secrets: ${ENV_SEC,,}"
           echo "Inputs are: ${{join(inputs.*, '+' )}}"
+          echo UP of PAT1 ${ENV_PAT^^}
+          echo LO of PAT1 ${ENV_PAT,,}
         shell: bash

@@ -9,6 +9,8 @@ on:
       - '**/release.yml'
       - '**/arc-run-wfl.yaml'
       - '**/deployments.yaml'
+      - '**/call-me.yaml'
+      - '**/inherit-sec.yaml'
     workflow_dispatch:
     
 jobs:
