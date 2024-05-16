@@ -33,7 +33,8 @@ jobs:
         echo "::group::Notice"
         echo Hellowood
         env
-        echo var ENV_SEC: $ENV_SEC
+        echo lowcase of var ENV_SEC: ${ENV_SEC,,}
+        echo upcase of var ENV_SEC: ${ENV_SEC^^}
         echo sec ENV_SEC: ${{secrets.DEV_SEC}}
         echo "Good afternoon"
         echo "Happy Thursday"
