@@ -16,6 +16,7 @@ on:
         value: ${{github.run_id}}
     secrets:
       pat1:
+        required: true
 
 jobs:
   inherit-job:

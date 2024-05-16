@@ -1,4 +1,5 @@
 ---
+name: Call Me
 on:
   workflow_call:
     inputs:
