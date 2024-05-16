@@ -1,0 +1,12 @@
+---
+name: Deployment Workflow
+run-name: Deployment workflow is triggered by ${{github.event_name}}:${{github.event}}:${{github.event_path}}
+on:
+  deployment
+jobs:
+  greeting-deployment:
+    name: Greeting Job
+    runs-on: arc-runner-set
+    steps:
+    - name: greeting
+      run: echo "How are you?"
