@@ -23,11 +23,15 @@ jobs:
         echo "::$stopMarker::"
         echo '::warning:: This is a warning again, because stop-commands has been turned off.'
     - name: Notice command
+      env:
+        ENV_SEC: ${{secrets.DEV_SEC}}
       run: |
         echo "::notice file=README.md,line=20,endline=30,title=See Readme::Pay attention plase"
         echo "::group::Notice"
         echo Hellowood
         env
+        echo var ENV_SEC: $ENV_SEC
+        echo sec ENV_SEC: ${{secrets.DEV_SEC}}
         echo "Good afternoon"
         echo "Happy Thursday"
         echo "::endgroup::"
