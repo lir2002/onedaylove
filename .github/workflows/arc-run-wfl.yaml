@@ -78,6 +78,12 @@ jobs:
     - name: I am Repo
       if: ${{env.JOB_ENV_SEC == 'repo'}}
       run: echo DEV_SEC is repo
+    - uses: lir2002/.github/look@main
+      id: father-of-son
+      with:
+        son: Nathan Li Junzhe
+    - name: Present Father name
+      run: echo Name of Father is ${{ steps.father-of-son.outputs.father}}
   calling-job:
     uses: ./.github/workflows/call-me.yaml
     name: Uses Call Me
