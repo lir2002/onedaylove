@@ -2,17 +2,27 @@
 name: Release Workflow
 run-name: ${{github.action}} trigers Release Workflow
 on:
-  release:
-    types:
-    - created
-    - edited
-    - released
+  workflow_dispatch:
+    inputs:
+      version:
+        required: true
+        type: string
+        default: ${{github.run_id}}
 
 jobs:
-  rel-job:
-    runs-on:
-      labels: [self-hosted, Linux]
+  release-job:
+    runs-on: arc-runner-set
+    permissions:
+      contents: write
+    name: Release Version Job
     steps:
-    - name: Step one
-      run: |
-        echo $GITHUB_REF_NAME is ${{ github.event_name }} by ${{github.actor}}
+      - uses: actions/checkout@v4
+      - name: Create release step
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+        with:
+          tag_name: ${{inputs.version}}
+          release_name: Release ${{inputs.version}}
+
+
