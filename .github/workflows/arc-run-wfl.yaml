@@ -3,6 +3,11 @@ on:
   workflow_dispatch:
   push:
     branches: [main]
+    paths:
+      - '**/arc-run-wfl.yaml'
+      - '**/call-me.yaml'
+      - '**/inherit-sec.yaml'
+
 run-name: ${{github.event_name}} triggers ARC Running
 jobs:
   Explore-GitHub-Actions:
