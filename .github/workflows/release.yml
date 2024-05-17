@@ -11,6 +11,7 @@ on:
 jobs:
   release-job:
     runs-on: arc-runner-set
+    environment: hot
     permissions:
       contents: write
     name: Release Version Job
