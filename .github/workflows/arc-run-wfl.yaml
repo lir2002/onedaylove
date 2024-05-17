@@ -18,14 +18,18 @@ jobs:
           - 6379:6379
         credentials:
           username: ${{secrets.DEV_SEC}}
-          password: ${{secrets.DEV_SEC}}          
+          password: ${{secrets.DEV_SEC}}
+        options: >-
+          --health-cmd "redis-cli ping"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
     outputs:
       outExp1: ${{job.status }}
       outCall: ${{needs.calling-job.outputs.outwfl}}
 
   workflow-command-job:
     needs: Explore-GitHub-Actions
-    environment: dev
     env:
       JOB_ENV_SEC: ${{secrets.DEV_SEC}}
       JOB_STATUS: ${{needs.Explore-GitHub-Actions.outputs.outExp1}}
