@@ -27,6 +27,7 @@ jobs:
       with:
         path: artifact.txt
         name: myart
+        retention-days: 2
     - name: Speak
       run: |
         echo "Hello, World"
