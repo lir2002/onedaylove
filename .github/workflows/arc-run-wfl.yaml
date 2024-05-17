@@ -8,7 +8,7 @@ jobs:
   Explore-GitHub-Actions:
     needs: calling-job
     # You need to use the INSTALLATION_NAME from the previous step
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     steps:
     - run: echo "🎉 This job is running!"
     services:
