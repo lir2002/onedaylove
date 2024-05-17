@@ -8,9 +8,9 @@ jobs:
   Explore-GitHub-Actions:
     needs: calling-job
     # You need to use the INSTALLATION_NAME from the previous step
-    runs-on: arc-runner-set
+    runs-on: self-hosted
     steps:
-    - run: echo "🎉 This job uses runner scale set runners!"
+    - run: echo "🎉 This job is running!"
     services:
       postgres:
         # Docker Hub image
